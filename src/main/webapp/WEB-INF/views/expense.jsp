@@ -20,5 +20,7 @@
 
             <button type="submit">Add Expense</button>
         </form:form>
+
+        <a href="${contextRoot}/expense/${expense.id}/delete">Delete</a>
     </body>
 </html>

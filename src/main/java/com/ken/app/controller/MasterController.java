@@ -48,4 +48,10 @@ public class MasterController {
 
         return mav;
     }
+
+    @RequestMapping(value="/expense/{id}/delete", method = RequestMethod.GET)
+    public String delete(@PathVariable Long id){
+        expenseService.delete(id);
+        return "redirect:/";
+    }
 }
