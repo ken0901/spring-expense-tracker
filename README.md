@@ -1,3 +1,3 @@
 # spring-expense-tracker
-** Skill - Springboot, JSP, MYSQL 
+* Skill - Springboot, JSP, MYSQL 
  
