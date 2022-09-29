@@ -7,12 +7,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Insert title here</title>
+        <title>Expense save page</title>
     </head>
     <body>
         <h1>Add Expense</h1>
 
         <form:form action="${contextRoot}/expense" method="post" modelAttribute="expense">
+            <form:hidden path="id"/>
             <form:input path="expenseName" placeholder="Enter expense name"/>
             <form:input path="amount" placeholder="Enter expense amount"/>
             <form:textarea path="note" placeholder="Enter note (optional)"/>

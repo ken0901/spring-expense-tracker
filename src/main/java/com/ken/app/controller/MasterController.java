@@ -5,6 +5,7 @@ import com.ken.app.service.ExpenseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -37,5 +38,14 @@ public class MasterController {
     public String save(@ModelAttribute("expense") Expense expense){
         expenseService.save(expense);
         return "redirect:/";
+    }
+
+    @RequestMapping(value="/expense/{id}", method = RequestMethod.GET)
+    public ModelAndView edit(@PathVariable Long id){
+        ModelAndView mav = new ModelAndView("expense");
+        Expense expense = expenseService.findById(id);
+        mav.addObject("expense",expense);
+
+        return mav;
     }
 }

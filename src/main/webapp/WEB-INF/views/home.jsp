@@ -6,11 +6,10 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Insert title here</title>
+        <title>Expense Home Page</title>
     </head>
     <body>
         <h1>Expense Tracker</h1>
-        <p>${contextRoot}</p>
 
         <a href="${contextRoot}/expense">Add Expense</a>
 
@@ -18,6 +17,7 @@
             <div>
                 <h3>${expense.expenseName}</h3>
                 <p>&dollar; ${expense.amount}</p>
+                <a href="${contextRoot}/expense/${expense.id}">Edit</a>
             </div>
         </c:forEach>
     </body>
