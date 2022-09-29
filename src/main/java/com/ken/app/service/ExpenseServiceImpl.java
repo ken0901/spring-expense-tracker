@@ -17,4 +17,10 @@ public class ExpenseServiceImpl implements ExpenseService{
     public List<Expense> findAll() {
         return expenseRepository.findAll();
     }
+
+    @Override
+    public void save(Expense expense) {
+        expense.setCreatedAt(System.currentTimeMillis());
+        expenseRepository.save(expense);
+    }
 }

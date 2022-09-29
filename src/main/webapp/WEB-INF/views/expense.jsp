@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <c:set var="contextRoot" value="${pageContext.request.contextPath}"/>
@@ -9,16 +10,14 @@
         <title>Insert title here</title>
     </head>
     <body>
-        <h1>Expense Tracker</h1>
-        <p>${contextRoot}</p>
+        <h1>Add Expense</h1>
 
-        <a href="${contextRoot}/expense">Add Expense</a>
+        <form:form action="${contextRoot}/expense" method="post" modelAttribute="expense">
+            <form:input path="expenseName" placeholder="Enter expense name"/>
+            <form:input path="amount" placeholder="Enter expense amount"/>
+            <form:textarea path="note" placeholder="Enter note (optional)"/>
 
-        <c:forEach var="expense" items="${expenses}">
-            <div>
-                <h3>${expense.expenseName}</h3>
-                <p>&dollar; ${expense.amount}</p>
-            </div>
-        </c:forEach>
+            <button type="submit">Add Expense</button>
+        </form:form>
     </body>
 </html>
